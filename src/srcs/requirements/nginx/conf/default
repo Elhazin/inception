@@ -1,0 +1,16 @@
+server {
+	listen 800;
+    
+	server_name abouzanb.42.com;
+
+	root /var/www/html/wordpress;
+	index index.html index.php;
+
+
+	location ~ \.php$  {
+        fastcgi_pass wordpress:9000;
+		index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+	}
+}

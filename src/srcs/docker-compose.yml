@@ -1,0 +1,169 @@
+version: '3'
+
+services:
+  nginx:
+    build: ./requirements/nginx/
+    image: nginx
+    container_name: nginx
+    ports:
+      - "80:800"
+    volumes:
+      - wp-data:/var/www/html/wordpress
+    depends_on:
+      - wordpress
+    env_file:
+      - .env
+  wordpress:
+    build: ./requirements/wordpress/
+    image: wordpress
+    container_name: wordpress
+    volumes:
+      - wp-data:/var/www/html/wordpress
+    env_file:
+      - .env
+    depends_on:
+      - mariadb
+
+  mariadb:
+    build: ./requirements/mariadb/
+    image: mariadb
+    container_name: mariadb
+    volumes:
+      - mariadb:/var/lib/mysql
+    env_file:
+      - .env
+    restart: always
+networks:
+  anas:
+    driver: bridge
+volumes:
+  wp-data:
+    driver: local
+    driver_opts:
+      device: /home/abouzanb/data/wordpress
+      type: none
+      o: bind
+  mariadb:
+    driver: local
+    driver_opts:
+      device: /home/abouzanb/data/mariadb
+      type: none
+      o: bind
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# version: '3'
+
+# services:
+#   nginx:
+#     build:
+#       context: requirements/nginx
+#       dockerfile: ./requirements/nginx/dockerfile
+#     ports:
+#       - "443:800"
+#     # volumes:
+#     #   - wddata:/var/www/html
+#     depends_on:
+#       - wordpress
+#   wordpress:
+#     build:
+#       context: requirements/wordpress
+#       dockerfile: dockerfile
+#     # volumes:
+#     #   - wddata:/var/www/html
+#     # depends_on:
+#     #   - mariadb
+
+# networks:
+#   anas:
+#     driver: bridge
+
+# volumes:
+#   wpdata:
+
+
+# volumes:
+#   wddata:
+#     # source: ./data
+#     driver: local
+#     driver_opts:
+#       device: /home/abouzanb/data/wordpress
+#       type: none
+#       o: bind
+#   mdb:
+#       driver: local
+#     driver_opts:
+#       # device: /home/abouzanb/data/mariadb
+#       type: none
+#       o: bind
+
+
+# version: '3'
+# services:
+#   db:
+#     image: mysql:5.7
+#     environment:
+#       MYSQL_DATABASE: wordpress
+#       MYSQL_USER: wordpress
+#       MYSQL_PASSWORD: password
+#       MYSQL_ROOT_PASSWORD: rootpassword
+#     volumes:
+#       - db_data:/var/lib/mysql
+
+#   wordpress:
+#     image: wordpress:latest
+#     ports:
+#       - "8080:80"
+#     environment:
+#       WORDPRESS_DB_HOST: db
+#       WORDPRESS_DB_USER: wordpress
+#       WORDPRESS_DB_PASSWORD: password
+#     volumes:
+#       - wordpress_data:/var/www/html
+
+# volumes:
+#   db_data:
+#   wordpress_data:
