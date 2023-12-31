@@ -62,10 +62,6 @@ DROP TABLE testschema.testtable;
 ```
 
 
-anas123456anas
-
-199 91
-
 ### users
 
 in order to show all the suers in the database we need to use the following command
