@@ -1,74 +1,103 @@
-## Inception
- This project is all about grasping the fundamentals of Docker, a tool for running containers. Learn how to use images and Docker files to build containers and manage them using Docker-compose. The main idea is to set up a web server with Nginx and a WordPress server with a Mariadb database. It serves as a great entry point into the realms of DevOps and containerization.
+# Inception
 
+## Introduction
+Welcome to 'Inception'! This project is a hands-on guide to Docker and containerization. It's perfect for beginners in DevOps and anyone interested in learning how to use Docker for web development. Our goal is to set up a web server using Nginx and WordPress, along with a Mariadb database.
 
+### Docker Explained
+Docker is a powerful tool for creating and managing containers. These containers allow you to run your applications in isolated environments, improving consistency and efficiency.
 
-### What is Docker?
- Docker is a tool that helps us package and run applications in isolated environments known as containers.
+### Why Containerization?
+Containerization keeps your applications separate and secure. It's like having a personal space for each app, where they can run without interfering with each other.
 
-### What is Containerization?
-   Containerization allows us to run applications in isolation, keeping them separate from other processes. It utilizes the host machine's kernel while providing its own environment.
+### Beyond Docker
+It's important to note that containerization isn't limited to Docker. While Docker is user-friendly and widely used, there are other ways to achieve containerization.
 
-### Why Do We Need It?
-  Consider a scenario where a program works only in a specific environment. Docker lets us create a container with all the necessary dependencies, ensuring the application runs consistently. This way, you can avoid concerns about changing or updating the environment.
+## Building Blocks of Docker
 
-### Notice:
-#### Creating Containers Without Docker:
-  It's crucial to understand that containerization is possible without using Docker. Docker, in essence, is a tool that simplifies and streamlines the containerization process, making it more accessible and user-friendly.
+### Images: Your Blueprint
+An image is the foundation of a container. It contains everything needed to build and run your container, like a well-defined recipe.
 
-
-### what is an image?
-  An image is like a blueprint for a container. It's a package containing all the necessary ingredients (like building blocks) and instructions needed to create and run a container. Think of it as a recipe that defines how the container should be set up.
-
-
-#### how to cretae a schema 
-to cretae a schema in sql we need to use the following command
-```
+### Crafting SQL Schemas
+To create a schema in SQL, use:
+```sql
 CREATE SCHEMA 'testschema';
 ```
-#### how to create a table
-to create a table inside that schema we need to use the following command
-```
-CREATE TABLE testschema.testtbale (number INT, 
-    name VARCHAR(20),
-    password VARCHAR(20)
-    phone VARCHAR(20)
-    email VARCHAR(20)
-    );
-```
-now that table is like  a class is it is a blueprint for the data that we want to store in the database
 
-#### how to insert data into the table
-now when we will insert data in the table is like we will create an object from that table
+### Constructing a Table
+To build a table in your schema:
+```sql
+CREATE TABLE testschema.testtable (
+    number INT, 
+    name VARCHAR(20),
+    password VARCHAR(20),
+    phone VARCHAR(20),
+    email VARCHAR(20)
+);
 ```
+Tables in SQL are like classes in programming, defining the structure for your data.
+
+### Inserting Data
+Inserting data into a table is similar to creating an object from a class:
+```sql
 INSERT INTO testschema.testtable (number, name, password, phone, email) VALUES (1, 'elhazin', 'hackme', '0606060606', 'hellome@gmail.com');
 ```
-#### see the data in the table
-to make sure that data is inserted in the table we need to use the following command
-``` 
+
+### Viewing Data
+To check the data in your table:
+```sql
 SELECT * FROM testschema.testtable;
 ```
 
-### change the data or update the data in the table
-
-to update the data in the table we need to use the following command
-```
+### Updating Data
+To update existing data:
+```sql
 UPDATE testschema.testtable SET name = 'elhazin';
 ```
-#### delete  a table from the schema
-to delete a table from the schema we need to use the following command
-```
+### Removing a Table
+To delete a table from your schema:
+```sql
 DROP TABLE testschema.testtable;
 ```
-
-
-### users
-
-in order to show all the suers in the database we need to use the following command
-```
-SELECT user, host  FROM  mysql.user ;
+### Managing Users in SQL
+To view all users in the database:
+```sql
+SELECT user, host FROM mysql.user;
 ```
 
+### SQL Data Types
+Understanding DATE and DATETIME
+DATE: For dates without time. Format: 'YYYY-MM-DD'. Range: '1000-01-01' to '9999-12-31'.
+DATETIME: Includes both date and time parts.
+
+
+## UPDATING
+
+### WordPress: Your Content Management System
+WordPress is a popular content management system (CMS) used for creating websites and blogs. It's user-friendly and highly customizable with themes and plugins.
+
+- **Why WordPress?** It's great for beginners and professionals alike, offering flexibility and ease of use.
+
+### MariaDB: The Database Engine
+MariaDB is a robust, open-source database management system. It's a fork of MySQL and is compatible with MySQL databases.
+
+- **Why MariaDB?** It provides high performance, strong security features, and is a reliable choice for web applications.
+
+## Diving Deeper into SQL
+
+SQL (Structured Query Language) is the standard language for managing relational databases. It's used for storing, retrieving, and manipulating data in a structured format.
+
+- **SQL Features:** SQL databases are known for their structured format, strong ACID (Atomicity, Consistency, Isolation, Durability) compliance, and complex querying capabilities.
+
+## Exploring NoSQL Databases
+
+NoSQL databases offer a flexible alternative to traditional SQL databases. They are designed to handle unstructured data and are ideal for large-scale data storage.
+
+- **Types of NoSQL Databases:** Key-Value, Document, Column, and Graph databases.
+- **Benefits of NoSQL:** Scalability, flexibility in handling diverse data types, and faster performance for certain types of applications.
+
+## Conclusion
+
+This project 'Inception' serves as a foundational guide to Docker, WordPress, MariaDB, and the basics of SQL and NoSQL databases. It's designed to help beginners dive into the world of containerization, web development, and database management. Happy learning!
 
 
 
@@ -78,16 +107,3 @@ SELECT user, host  FROM  mysql.user ;
 
 
 
-
-
-
-
-
-
-
-## Data types in SQL
-
-### DATE and DATETIME
-The DATE type is used for values with a date part but no time part. MySQL retrieves and displays DATE values in 'YYYY-MM-DD' format. The supported range is '1000-01-01' to '9999-12-31'.
-```data , MONTH, YEAR 
-```
